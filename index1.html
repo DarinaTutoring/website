@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="hhEImP3b0eu0UiYaOMf7JX9yYYSO1u7aEhsZnR-xQRc" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darina - Tutoring for Maths and Sciences</title>
+  <meta name="description" content="Darina offers online Maths and Science tutoring for A level, GCSE and university prep. Schedule a lesson today.">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --blue: #a9dee9;
+      --text-dark: #000;
+      --text-light: #333;
+      --font-main: "TildaSans", "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      scroll-behavior: smooth;
+      color: var(--text-dark);
+      background-color: var(--blue);
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+    }
+
+    a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      background-color: var(--blue);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      font-size: 16px;
+    }
+
+    /* ====== HERO / TITLE ====== */
+    .hero {
+      text-align: center;
+      background-color: var(--blue);
+      padding: 100px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    /* ====== ABOUT SECTION ====== */
+    .about {
+      background-color: var(--blue);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1500px;
+      margin: 0 auto;
+      gap: 60px;
+    }
+
+    .about img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .about-text {
+      max-width: 500px;
+    }
+
+    .about-text h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+
+    /* ====== OFFERINGS (Two Columns + Custom Bullets) ====== */
+    .offerings {
+      background-color: white;
+      text-align: center;
+    }
+    
+    .offerings h2 {
+      color: var(--text-dark);
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+    
+    /* UL as a centered grid; text left-aligned */
+    .offerings .subjects {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;                      /* hide default bullets */
+      text-align: left;
+      max-width: 900px;
+    
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 40px;                        /* row, column gap */
+    }
+    
+    .offerings .subjects li {
+      position: relative;
+      padding-left: 32px;                    /* room for icon */
+      font-size: 18px;
+      min-height: 24px;                      /* helps alignment with icon */
+    }
+    
+    /* Base pseudo-icon */
+    .offerings .subjects li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.2em;                            /* tweak vertical alignment */
+      width: 22px;                           /* icon size */
+      height: 22px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+    /* One image per item (order-dependent) */
+    .offerings .subjects li:nth-child(1)::before { background-image: url("physics.png"); }
+    .offerings .subjects li:nth-child(2)::before { background-image: url("chemistry.png"); }
+    .offerings .subjects li:nth-child(3)::before { background-image: url("maths.png"); }
+    .offerings .subjects li:nth-child(4)::before { background-image: url("fmaths.png"); }
+    
+    .offerings .subjects span {
+      display: block;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    
+    /* Mobile: single column */
+    @media (max-width: 700px) {
+      .offerings .subjects {
+        grid-template-columns: 1fr;
+        max-width: 600px; /* optional */
+      }
+    }
+
+
+    /* ====== CREDENTIALS (Two Columns on Desktop) ====== */
+   
+    .credentials ul {
+      list-style: none;        /* hide default bullets */
+      padding: 0;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 40px;
+      max-width: 900px;
+      text-align: left;
+    }
+    
+    .credentials li {
+      position: relative;
+      padding-left: 28px;      /* space for the icon (tweak as needed) */
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+    
+    /* Custom bullet */
+    .credentials li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.35em;             /* vertical alignment; adjust if needed */
+      width: 18px;             /* icon size */
+      height: 18px;
+      background-image: url("check.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    
+    /* Smaller text span remains the same */
+    .credentials li span {
+      display: block;
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    
+    /* Mobile: single column */
+    @media (max-width: 700px) {
+      .credentials ul {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .credentials {
+      background-color: var(--blue);
+      text-align: left;
+    }
+
+    .credentials h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+
+    .credentials li span {
+      display: block;
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+
+    /* ====== REVIEWS CAROUSEL ====== */
+    :root {
+      --reviews-bg: #f0fcff;
+      --dot: #a9dee9;
+      --dot-active: #5ae3ff;
+    }
+    
+    .reviews {
+      background: var(--reviews-bg);
+      text-align: center;
+      padding: 70px 20px;
+    }
+    
+    .reviews .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .reviews .title {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      color: var(--text-dark);
+    }
+    
+    .reviews .subtitle {
+      font-size: 16px;
+      color: var(--text-light);
+      margin: 0 0 28px 0;
+    }
+    
+    /* Carousel frame */
+
+    .reviews .carousel {
+      position: relative;
+      overflow: hidden;                 /* clip anything outside the frame */
+      background: var(--reviews-bg);    /* optional: ensures clean edges */
+    }
+    
+    .reviews .track {
+      display: flex;
+      flex-wrap: nowrap;                /* keep slides on one row */
+      gap: 0;                           /* no spacing between slides */
+      transition: transform 350ms ease;
+    }
+    
+    .reviews .slide {
+      flex: 0 0 100%;                  /* exactly 100% of the frame */
+      min-width: 100%;                 /* belt + braces */
+      box-sizing: border-box;
+      padding: 0;                      /* padding on inner content instead */
+      margin: 0;                       /* no margins that could add width */
+      display: flex;                   /* <-- needed for flex centering to work */
+      flex-direction: column;
+      justify-content: center;         /* vertical centering */
+      align-items: center;             /* horizontal centering */
+      min-height: 100%;
+    }
+    
+    .reviews blockquote {
+      margin: 0;
+      padding: 0 12px;                  /* safe inner breathing room */
+      max-width: 70ch;                  /* optional: keep lines readable */
+      margin-left: auto;                /* center text block within slide */
+      margin-right: auto;
+    }
+    
+    /* make sure nav stays clickable above slides */
+    .reviews .nav { z-index: 5;
+    display: grid; 
+    }
+
+
+    .reviews .meta {
+      margin-top: 20px;
+      line-height: 1.4;
+    }
+    
+    .reviews .author {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .reviews .subject {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    
+    /* Web icon link */
+    .reviews .origin {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    
+    .reviews .origin a {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    
+    .reviews .origin svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* Nav buttons (always enabled for infinite loop) */
+    .reviews .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border: 1px solid rgba(0,0,0,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    
+    .reviews .nav:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .reviews .nav:active { transform: translateY(-50%) scale(0.97); }
+    
+    .reviews .prev { left: 6px; }
+    .reviews .next { right: 6px; }
+    
+    .reviews .nav svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* Dots */
+    .reviews .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Round, filled dots with no border */
+    .reviews .dot {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;                 /* remove border */
+      outline: none;                /* remove default outline */
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;           /* perfectly round */
+      background-color: var(--dot); /* base color */
+      padding: 0;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 200ms ease, transform 200ms ease;
+    }
+
+    /* Active/selected dot */
+    .reviews .dot[aria-current="true"] {
+      background-color: var(--dot-active);
+      transform: scale(1.1);
+    }
+
+    /* A11y helper */
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+    
+    /* Mobile tweaks */
+    @media (max-width: 700px) {
+      .reviews blockquote { font-size: 17px; }
+      .reviews .nav { display: none; }
+    }
+
+    /* ====== CONTACT ====== */
+    .contact {
+      background-color: var(--blue);
+      text-align: center;
+      padding-bottom: 80px;
+    }
+
+    .contact h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-light);
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .about {
+        flex-direction: column;
+      }
+      .about img {
+        width: 90%;
+        height: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="site-title">Darina - Tutoring for Maths and Sciences</div>
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Schedule a meeting!</a>
+    </nav>
+  </header>
+
+  <!-- HERO / TITLE -->
+  <section id="top" class="hero">
+    <h1>Darina - Tutoring for Maths and Science</h1>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="profile.jpg" alt="Darina photo">
+    <div class="about-text">
+      <h2>Hi, I have been tutoring maths and science for 5 years, and would love to help you too!</h2>
+      <p>
+        My name is Darina, and I offer online maths and science tutoring (mostly A level and GCSE preparation), and university application support. 
+        I have 1000+ hours logged on registered tutoring sites, with only 5* reviews, after tutoring there for 5 years. 
+        Currently, I am a PhD student at the University of Oxford, having just finished my Cambridge Natural Sciences degree.
+      </p>
+      <p>
+        I offer both regular and shorter-term/gapfill lessons. Please get in touch to discuss the details! <!-- and booking here means you avoid paying platform fees (which can be &gt;40%!) -->
+      </p>
+    </div>
+  </section>
+
+  <!-- OFFERINGS -->
+  <section class="offerings" id="offerings">
+    <h2>Subjects offered</h2>
+    <ul class="subjects">
+      <li>Physics <span>University, A level, GCSE</span></li>
+      <li>Chemistry <span>A level, GCSE</span></li>
+      <li>Maths <span>A level, GCSE, KS3, KS2, 11+</span></li>
+      <li>Further Maths <span>GCSE</span></li>
+    </ul>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials" id="credentials">
+  
+    <h2>My academic and tutoring credentials:</h2>
+    <ul>
+      <li>Over seventy 5* reviews and 1000+ hours logged on other tutoring platforms
+        <span>This is where I began tutoring, and learned how to work with students in an online format. </span>
+      </li>
+      <li>MSci Natural Sciences from Cambridge University
+        <span>First class bachelors and MSci degree holder in Natural Sciences from the University of Cambridge, specialising in Physics.</span>
+      </li>
+      <li>A*s at A level/GCSE in all of the subjects I tutor
+        <span>A levels: A*s in Maths, Physics, Chemistry, Russian
+GCSEs: A*s (9/8 equivalent under new system) in Maths, Further Maths, Chemistry, Physics, and Biology</span>
+      </li>
+      <li>Currently studying for a PhD in Physics
+        <span>I am currently at the University of Oxford studying for a DPhil in Physics! As well as research, I have a continuing passion for helping people understand and excel in the sciences.</span>
+      </li>
+      <li>Enhanced DBS Check
+        <span>This is an enhanced check carried out by the government, necessary for working with vulnerable groups.</span>
+      </li>
+    </ul>
+  </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <h2 class="title">Hear from satisfied parents</h2>
+        <p class="subtitle">These are reviews taken from the official tutoring platform I was on previously.</p>
+
+        <div class="carousel" data-carousel>
+          <button class="nav prev" type="button" aria-label="Previous review" data-prev>
+            <!-- Left arrow -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="track" data-track>
+            <!-- Slide 1 -->
+            <article class="slide" aria-roledescription="slide" aria-label="1 of 4">
+              <blockquote>
+                Darina has been extremely helpful, friendly and professional in her approach to Physics. She was very accommodating, and was able to tailor the lessons to suit my daughter’s needs. My daughter went from “needs improvement” to “outstanding” in iGCSE Physics in a very short period of time. We really can’t thank Darina enough for all her efforts, especially how she made physics’ concepts possible to digest in ways we never thought possible! We will definitely be contacting Darina, if her time permits, for A’Level Physics next year. Thank you!
+              </blockquote>
+              <div class="meta">
+                <div class="author">Shaimaa, Parent from Doha</div>
+                <div class="subject">iGCSE Physics</div>
+                <div class="origin">
+                  <a href="https://www.mytutor.co.uk/tutors/341664/" target="_blank" rel="noopener noreferrer" aria-label="Open original review">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M2 12h20M12 2c3.5 3.7 3.5 15.3 0 20M12 2c-3.5 3.7-3.5 15.3 0 20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="sr-only">Open review website</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2 -->
+            <article class="slide" aria-roledescription="slide" aria-label="2 of 4">
+              <blockquote>
+                Darina has taught my 13 year old son maths for nearly six months now. The lessons have been well organised and my son has found her teaching very clear and helpful. As a parent, I've found Darina's communications to be great and she has been flexible whenever rescheduling is required, which is always much appreciated. I have no hesitation in recommending Darina very highly as a teacher.
+              </blockquote>
+              <div class="meta">
+                <div class="author">Rangan, Parent from London</div>
+                <div class="subject">KS3 Maths</div>
+                <div class="origin">
+                  <a href="https://www.mytutor.co.uk/tutors/341664/" target="_blank" rel="noopener noreferrer" aria-label="Open original review">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M2 12h20M12 2c3.5 3.7 3.5 15.3 0 20M12 2c-3.5 3.7-3.5 15.3 0 20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="sr-only">Open review website</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3 -->
+            <article class="slide" aria-roledescription="slide" aria-label="3 of 4">
+              <blockquote>
+                Excellent. Darina’s work with my son helped him to achieve his best ever maths grade of 60% in what had been a difficult subject for him. We are so pleased as he needed this good mark to go forward with his A level choice.
+              </blockquote>
+              <div class="meta">
+                <div class="author">Fergus, Parent from Cobham</div>
+                <div class="subject">GCSE Maths</div>
+                <div class="origin">
+                  <a href="https://www.mytutor.co.uk/tutors/341664/" target="_blank" rel="noopener noreferrer" aria-label="Open original review">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M2 12h20M12 2c3.5 3.7 3.5 15.3 0 20M12 2c-3.5 3.7-3.5 15.3 0 20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="sr-only">Open review website</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4 -->
+            <article class="slide" aria-roledescription="slide" aria-label="4 of 4">
+              <blockquote>
+                Helped my daughter from a C to an A in A-level chemistry. Was polite and punctual! Easy to get along with.
+              </blockquote>
+              <div class="meta">
+                <div class="author">Theresa, Parent from Cheltenham</div>
+                <div class="subject">A Level Chemistry</div>
+                <div class="origin">
+                  <a href="https://www.mytutor.co.uk/tutors/341664/" target="_blank" rel="noopener noreferrer" aria-label="Open original review">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+                      <path d="M2 12h20M12 2c3.5 3.7 3.5 15.3 0 20M12 2c-3.5 3.7-3.5 15.3 0 20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="sr-only">Open review website</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button class="nav next" type="button" aria-label="Next review" data-next>
+            <!-- Right arrow -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- Dots -->
+          <div class="dots" role="tablist" aria-label="Review pagination" data-dots></div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Email: tutoring.darina@gmail.com</h2>
+    <p>
+      Currently, I have plenty of availability for the 25/26 academic year. Please contact me with any questions, or to schedule a lesson/free meeting.
+    </p>
+  </section>
+
+  <footer>© 2025 Darina Tutoring. All rights reserved.</footer>
+
+  <script>
+  (function () {
+    const carousel = document.querySelector('[data-carousel]');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('[data-track]');
+    const prevBtn = carousel.querySelector('[data-prev]');
+    const nextBtn = carousel.querySelector('[data-next]');
+    const dotsWrap = carousel.querySelector('[data-dots]');
+
+    // Keep a reference to the original slides
+    const originals = Array.from(track.children);
+    const n = originals.length;
+
+    // Clone: last -> front, first -> end (for seamless loop)
+    const firstClone = originals[0].cloneNode(true);
+    const lastClone  = originals[n - 1].cloneNode(true);
+    track.prepend(lastClone);
+    track.append(firstClone);
+
+    // State: start on the first "real" slide (index 1 in the augmented list)
+    let index = 1;
+
+    // Build dots (1..n)
+    for (let i = 0; i < n; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i)); // goTo expects 0..n-1
+      dotsWrap.appendChild(dot);
+    }
+
+    function setDots() {
+      const dots = dotsWrap.querySelectorAll('.dot');
+      const visible = ((index - 1 + n) % n); // map augmented index to 0..n-1
+      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === visible)));
+    }
+
+    function applyTransform(noAnim = false) {
+      if (noAnim) {
+        track.style.transition = 'none';
+      } else {
+        track.style.transition = 'transform 350ms ease';
+      }
+      track.style.transform = `translateX(${-index * 100}%)`;
+
+      // If we turned transition off, force reflow then turn it back on
+      if (noAnim) {
+        // force reflow
+        void track.offsetHeight;
+        track.style.transition = 'transform 350ms ease';
+      }
+    }
+
+    function updateAria() {
+      // Update ARIA labels like "k of n" for originals only (optional)
+      const augmented = Array.from(track.children); // includes clones
+      augmented.forEach((slide) => {
+        slide.removeAttribute('aria-label');
+      });
+      const visible = ((index - 1 + n) % n); // 0..n-1
+      originals.forEach((slide, i) => {
+        slide.setAttribute('aria-label', `${i + 1} of ${n}`);
+        slide.setAttribute('aria-roledescription', 'slide');
+      });
+    }
+
+    function goTo(i0based) {
+      index = i0based + 1; // shift to augmented index space
+      applyTransform(false);
+      setDots();
+      updateAria();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      index -= 1;
+      applyTransform(false);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      index += 1;
+      applyTransform(false);
+    });
+
+    // Keyboard support
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { index -= 1; applyTransform(false); }
+      if (e.key === 'ArrowRight') { index += 1; applyTransform(false); }
+    });
+
+    // On transition end, if we’re on a clone, jump (without animation) to the matching real slide
+    track.addEventListener('transitionend', () => {
+      if (index === 0) {
+        index = n;          // jump from cloned first-at-front to real last
+        applyTransform(true);
+      } else if (index === n + 1) {
+        index = 1;          // jump from cloned last-at-end to real first
+        applyTransform(true);
+      }
+      setDots();
+      updateAria();
+    });
+
+    // Init
+    applyTransform(true); // position on first real slide without anim
+    setDots();
+    updateAria();
+  })();
+  </script>
+
+</body>
+</html>
